@@ -2,7 +2,9 @@
 
 ## Data types
 
-Let's consider programming in terms of types. A number can be an integer, a float, or a type with specific precision. A text can be a character, a string, or a binary format with an unspecified size. Likewise, an object's behavior can be defined by a type, referred to as an _interface_ in most OOP languages.
+In any programming language we have types for all types of 
+
+ A number can be an integer, a float, or a type with specific precision. A text can be a character, a string, or a binary format with an unspecified size. Likewise, an object's behavior can be defined by a type, referred to as an _interface_ in most OOP languages.
 
 An interface defines a set of operations with arguments and return types. This allows for:
   - Polymorphism
