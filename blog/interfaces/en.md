@@ -2,12 +2,12 @@
 
 ## Data types
 
-In any programming language, we handle data that has a type. Numbers, text, binaries, they have types. The same way, an object's behavior can be defined by a type, referred to as an _interface_ in most languages.
+In any programming language, data has types. Numbers, text, binaries, all of them have a specific type. The same way, an object can be defined by a type, referred to as an _interface_ in most languages.
 
-An interface defines a set of operations with arguments and return types. This allows for:
+An interface is a set of operations with arguments and return types. This allows for:
   - Multiple implementations
   - Hide dependency injection
-  - Plain stub objects for testing
+  - Plain objects for testing
 
 ## Example
 
@@ -17,8 +17,7 @@ A user create service would look like this:
 type CreateUserService = {
     create: (
         user: UserCreate,
-        modelValidator: UserModelValidator,
-        uniqueUsernameService: UniqueUsernameService,
+        validator: UserValidator,
         idGenerator: IdGenerator,
         passwordGenerator: PasswordGenerator,
         repository: UserRepository,
@@ -28,8 +27,7 @@ type CreateUserService = {
 export const createUserServiceActual: CreateUserService = {
     create: (
         user: UserCreate,
-        modelValidator: UserModelValidator,
-        uniqueUsernameService: UniqueUsernameService,
+        validator: UserValidator,
         idGenerator: IdGenerator,
         passwordGenerator: PasswordGenerator,
         repository: UserRepository,
@@ -45,7 +43,9 @@ export const createUserServiceErrorStub: CreateUserService = {
 };
 ```
 
-Now, any function that receives a **CreateUserService** can be tested using **createUserServiceStub** and **createUserServiceErrorStub** instead of mocking all those dependencies. This abstracts implementation to let you think about **input** and **output**.
+Any functions that has a **CreateUserService** argument can be tested with createUserServiceStub and createUserServiceErrorStub instead of mocking all dependencies. This helps focus on input and output.
+
+Any functions that has a **CreateUserService** argument can be tested using **createUserServiceStub** and **createUserServiceErrorStub** instead of mocking all dependencies. This abstracts implementation and let you think about **input** and **output**.
 
 ## Applying
 
@@ -59,7 +59,7 @@ Another pitfall is that there is two problems that some languages type-system do
 
 ### Java
 
-Modern Java provides:
+Java provides:
 
 - `@Nullable` and `@NotNull` annotations to handle null values
 - `throws` keyword to make error handling explicit
@@ -67,11 +67,11 @@ Modern Java provides:
 
 ### Typescript
 
-Typescript allows for union types, so a variable can be, for instance `string | number | null | undefined` (string or number or null or undefined). This type system allows handling empty values explicitly.
+Typescript supports union types, so a variable can be, for instance `string | number | null | undefined`. This makes empty values explicit.
 
 ### Rust
 
-Is a language that provides a simple and powerful type system:
+Rust offers a simple and powerful type system:
 
 - No _null_ pointer
 - _Option_ data structure to handle absent values
