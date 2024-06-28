@@ -1,4 +1,4 @@
-# Thoughts on FOSS and UNIX and community
+# FOSS and UNIX and community
 
 Unix não é um sistema operacional. unix pode ser definido como o conjunto da especificação unix com a especificação posix. os sistemas unix-like dominam o Mercado em todas os ambientes, exceto ambientes desktop.
 
