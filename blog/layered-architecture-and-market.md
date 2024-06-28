@@ -1,4 +1,4 @@
-# Thoughts on Layered Architecture and Market
+# Layered Architecture and Market
 
 ## Reusability
 
