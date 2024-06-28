@@ -2,24 +2,58 @@
 
 ## Data types
 
-In any programming language we have types for all types of 
-
- A number can be an integer, a float, or a type with specific precision. A text can be a character, a string, or a binary format with an unspecified size. Likewise, an object's behavior can be defined by a type, referred to as an _interface_ in most OOP languages.
+In any programming language, we handle data that has a type. Numbers, text, binaries, they have types. The same way, an object's behavior can be defined by a type, referred to as an _interface_ in most languages.
 
 An interface defines a set of operations with arguments and return types. This allows for:
-  - Polymorphism
   - Multiple implementations
+  - Hide dependency injection
   - Plain stub objects for testing
 
-## Applying interfaces
+## Example
 
-I implemented the PreciseSchedule's backend using as many interfaces as possible. In the process, I found out that: **the more interfaces you have, the harder it is to understand the code intentions**. In my case, the goal was to provide a default implementation and a default stub for testing.
+A user create service would look like this:
 
-When applying this approach to a layered clean architecture, it becomes hard to follow the code direction, the code operations and their results. The code becomes bloated with type definitions and stubs. Many tests  assert object interations instead of value assertions.
+```typescript
+type CreateUserService = {
+    create: (
+        user: UserCreate,
+        modelValidator: UserModelValidator,
+        uniqueUsernameService: UniqueUsernameService,
+        idGenerator: IdGenerator,
+        passwordGenerator: PasswordGenerator,
+        repository: UserRepository,
+    ) => Promise<User>;
+}
 
-I also found that there is two problems that some languages type system do not cover:
-  - Null values
-  - Error handling
+export const createUserServiceActual: CreateUserService = {
+    create: (
+        user: UserCreate,
+        modelValidator: UserModelValidator,
+        uniqueUsernameService: UniqueUsernameService,
+        idGenerator: IdGenerator,
+        passwordGenerator: PasswordGenerator,
+        repository: UserRepository,
+    ) => { /* omitted */ }
+};
+
+export const createUserServiceStub: CreateUserService = {
+    create: () => Promise.resolve(userStub)
+};
+
+export const createUserServiceErrorStub: CreateUserService = {
+    create: () => { throw new Error(); }
+};
+```
+
+Now, any function that receives a **CreateUserService** can be tested using **createUserServiceStub** and **createUserServiceErrorStub** instead of mocking all those dependencies. This abstracts implementation to let you think about **input** and **output**.
+
+## Applying
+
+If you apply interfaces exhaustively, the code indirection makes it hard to follow the code. So you must minimize interfaces.
+
+Another pitfall is that there is two problems that some languages type-system do not cover:
+    - **Null values**
+    - **Error handling**
 
 ## Language by language
 
@@ -33,18 +67,12 @@ Modern Java provides:
 
 ### Typescript
 
-Typescript allows for union types, so a variable can be, for instance `string | number | null | undefined` (string or number or null or undefined). This type system allows handling empty values explicitly
+Typescript allows for union types, so a variable can be, for instance `string | number | null | undefined` (string or number or null or undefined). This type system allows handling empty values explicitly.
 
 ### Rust
 
-Is a language that provides a simple type system, that is enhanced by the standard library, by the following data structures:
+Is a language that provides a simple and powerful type system:
 
-- _Option_ to handle nullable values
-- _Result_ to handle errors
-
-
-## Alternatives
-
-The Rust programming language provides  and  data
-
- another alternative I like the most with features like _Option_ and _Result_ from the Rust programming language solve the problem of explicitly managing errors and null values in your code.
+- No _null_ pointer
+- _Option_ data structure to handle absent values
+- _Result_ data structure to handle errors
