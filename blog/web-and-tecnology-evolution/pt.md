@@ -1,6 +1,6 @@
 # Web development and tecnology evolution
 
-os desenvolvimentos tecnologicos em programação mais significativo nos ultimos anos ocorreram na
+Pessoalmente os desenvolvimentos tecnologicos em programação mais significativo nos ultimos anos ocorreram na
 web.
 
 quando a web surgiu, os servidores serviam os arquivos de html, depois de css e por último os
