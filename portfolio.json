@@ -1,12 +1,18 @@
 [
-    { 
+    {
         "id": "precise-schedule",
-        "name": "Precise Schedule",
-        "date": "2023-08-11" 
+        "name": {
+            "en": "Precise Schedule",
+            "pt": "Precise Schedule"
+        },
+        "date": "2023-08-11"
     },
-    { 
+    {
         "id": "conway-game-of-life",
-        "name": "Conway's Game Of Life",
-        "date": "2023-05-07" 
+        "name": {
+            "en": "Conway's Game Of Life",
+            "pt": "Jogo da Vida de Conway"
+        },
+        "date": "2023-05-07"
     }
 ]

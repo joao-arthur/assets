@@ -1,12 +1,18 @@
 [
     {
-        "id": "thoughts-on-interfaces",
-        "name": "Thoughts on interfaces",
+        "id": "Interfaces",
+        "name": {
+            "en": "Interfaces",
+            "pt": "Interfaces"
+        },
         "date": "2023-08-12"
     },
     {
-        "id": "thoughts-on-layered-architecture-and-market",
-        "name": "Thoughts on Layered Architecture and Market",
+        "id": "Layered-architecture-and-market",
+        "name": {
+            "en": "Layered Architecture and Market",
+            "pt": "Layered Architecture and Market"
+        },
         "date": "2023-08-11"
     }
 ]
