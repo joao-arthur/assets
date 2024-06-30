@@ -86,10 +86,10 @@ async function createUser(
 
 In order to compare this code to another languages, suppose:
 
-- The repository can be null
-- The repository can throw an error
-- The user is an required argument
-- If the user is correctly saved, the saved user is returned
+- `repository` can be null
+- `repository` can throw an error
+- `user` is an required argument
+- If `user` is correctly saved, the saved user is returned
 
 ### Typescript
 
@@ -114,7 +114,7 @@ Java provides:
 - Annotation syntax that allows for `@Nullable` and `@NotNull` (There are many implementations from
   different libs)
 - `throws` keyword to make error handling explicit
-- _Mockito_ and similar libraries to mock injected dependencies during runtime.
+- _Mockito_ and similar libraries to mock injected dependencies during runtime
 
 ```java
 import org.jetbrains.annotations.NotNull;
@@ -139,7 +139,7 @@ Rust has a unique type-system because it has:
 - _Option_ data structure to handle present or absent values
 - _Result_ data structure to handle success or error values
 
-The _Option_ and _Result_ work like enums, so you have to handle each case, like showed below:
+The _Option_ and _Result_ work like enums, so it is necessary to handle each case:
 
 ```rs
 pub fn create_user(
@@ -155,6 +155,6 @@ pub fn create_user(
 
 ## Conclusion
 
-Interfaces, like any form of **abstraction**, can _hide errors_. If null and errors are
+Interfaces, like any **abstraction**, can _hide errors_. If null and errors are
 **explicit**, these errors can be avoided, at the cost of verbose code. Personally, I like the
 **Rust** solution.
