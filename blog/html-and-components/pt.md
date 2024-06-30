@@ -35,16 +35,16 @@ requisições **HTTP** no cliente. Nesse momento, houve uma mudança para **clie
 forma rústica de componentização já era possível, através da separação dos arquivos HTML e do
 dinamismo no **DOM**.
 
-O próximo grande passo foi dado pelo **AngularJS** em 2010, que ajudou a popularizar o **NodeJS** na
-web e trouxe de vez o conceito de _componentização_ para construção de estilo e comportamento, e de
-**OOP** no **JavaScript**.
+O próximo grande passo foi dado pelo **AngularJS** em 2010, que ajudou a popularizar o **NodeJS** em
+aplicações frontend e trouxe de vez o conceito de _componentes_ para construção de estilo e
+comportamento, e de **POO** no **JavaScript**.
 
-O surgimento do **React** em 2014, desbancou o **Angular** por conta da simplicidade que ele
-oferecia ao transformar a componentização em funções, e a construção de páginas através da
-_composição de componentes_.
+O surgimento do **React** em 2014, desbancou o **AngularJS** por conta da simplicidade que ele
+oferecia ao transformar _componentes em funções_, e a construção de páginas em _composição de
+componentes_.
 
 ```js
-export function RedSquare() {
+export function QuadradroVermelho() {
     return (
         <div
             style={{
@@ -59,15 +59,15 @@ export function RedSquare() {
 
 ## Os impactos da componentização
 
-Atualmente, mesmo no **JavaScript vanilla** já é possível criar tags HTML customizadas, a partir da
-API de WebComponents.
+Atualmente, mesmo no **JavaScript vanilla** já é possível criar tags HTML customizadas, através da
+**API de WebComponents**.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <script>
-            class RedSquare extends HTMLElement {
+            class QuadradroVermelho extends HTMLElement {
                 constructor() {
                     super();
                 }
@@ -88,16 +88,16 @@ API de WebComponents.
                 }
             }
 
-            customElements.define("red-square", RedSquare);
+            customElements.define("quadrado-vermelho", QuadradroVermelho);
         </script>
     </head>
     <body>
-        <red-square></red-square>
+        <quadrado-vermelho></quadrado-vermelho>
     </body>
 </html>
 ```
 
-A ideia de componentização é poderosa que não afetou _apenas_ o cenário de desenvolvimento web. um
+A ideia de componentes é tão poderosa que não afetou _apenas_ o cenário de desenvolvimento web. Um
 exemplo que vale a pena ser citado são os aplicativos **Android**. O Android usa nativamente uma API
 de **XML** para definição de layout, o que é _conceitualmente_ muito próximo do **HTML**.
 
@@ -109,7 +109,7 @@ de **XML** para definição de layout, o que é _conceitualmente_ muito próximo
     android:layout_height="match_parent"
 >
     <View
-        android:id="@+id/redSquare"
+        android:id="@+id/QuadradroVermelho"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="#FF0000"
@@ -117,11 +117,11 @@ de **XML** para definição de layout, o que é _conceitualmente_ muito próximo
 </RelativeLayout>
 ```
 
-Nos ultimos anos, influenciados principalmente pelo React, **Kotlin** criou uma nova API de layouts
-baseadas em componentes, e o **Flutter** já foi desenvolvido com isso em mente.
+Nos últimos anos, influenciados principalmente pelo **React**, **Kotlin** criou uma nova API de
+layouts baseadas em componentes, e o **Flutter** já foi desenvolvido com isso em mente.
 
 ## Conclusão
 
-Desde o surgimento da web, se tentou encontrar formas de reutilizar o código. A componentização se
-mostrou uma forma muito eficaz, e acabou impactando inclusive outras tecnlogias, como o
+Desde o nascimento da web, desenvolvedores buscaram formas de reutilizar o código. A componentização
+se mostrou uma _forma muito eficaz_, e acabou impactando inclusive outras tecnlogias, como o
 desenvolvimento de aplicativos móveis.
