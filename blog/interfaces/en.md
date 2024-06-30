@@ -148,13 +148,12 @@ pub fn create_user(
 ) -> Result<DBUser, RepoErr> {
     match repository {
         Some(r) => Ok(r.save(user)),
-        None => Err("Repository cannot be null"),
+        None => Err("repository is required!"),
     }
 }
 ```
 
 ## Conclusion
 
-Interfaces, like any **abstraction**, can _hide errors_. If null and errors are
-**explicit**, these errors can be avoided, at the cost of verbose code. Personally, I like the
-**Rust** solution.
+Interfaces, like any **abstraction**, can _hide errors_. If null and errors are **explicit**, these
+errors can be avoided, at the cost of verbose code. Personally, I like the **Rust** solution.
