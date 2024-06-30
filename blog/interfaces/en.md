@@ -47,42 +47,102 @@ export const createUserServiceErrorStub: CreateUserService = {
 ```
 > Sample service to create a user, that also exports its _stubs_
 
-Any functions that has a **CreateUserService** argument can be tested with createUserServiceStub and
-createUserServiceErrorStub instead of mocking all dependencies. This helps focus on input and
-output.
-
 Any functions that has a **CreateUserService** argument can be tested using
 **createUserServiceStub** and **createUserServiceErrorStub** instead of mocking all dependencies.
 This abstracts implementation and let you think about **input** and **output**.
 
-## Applying
+## Pitfalls
 
-If you apply interfaces exhaustively, the code indirection makes it hard to follow the code. So you
-must minimize interfaces.
+- If you apply interfaces exhaustively, the code indirection makes it hard to follow the code. As a rule of thumb, use interfaces for: **external resources** (HTTP requests, database connections...) and **dependency injection** (When these resources are passed as arguments of functions, exactly as in the previous example).
 
-Another pitfall is that there is two problems that some languages type-system do not cover:
+- There is two problems that a type-system may not cover:
+
   - **Null values**
   - **Error handling**
 
 ## Language by language
 
+Take the following example in _JavaScript_:
+
+```js
+async function createUser(
+    user,
+    repository,
+) {
+    if (!repository) {
+        throw new Error("repository is required!");
+    }
+    return repository.save(user);
+}
+```
+
+In order to compare this code to another languages, suppose:
+
+- The repository can be null
+- The repository can throw an error
+- The user is an required argument
+- If the user is correctly saved, the saved user is returned
+
+### Typescript
+
+Typescript supports union types, that allow typing required and null values. But there is no way to The same code could be rewritten as:
+
+```ts
+function createUser(
+    user: User,
+    repository: UserRepository | null,
+): DBUser {
+    if (!repository) {
+        throw new Error("repository is required!");
+    }
+    return repository.save(user);
+}
+```
+
 ### Java
 
 Java provides:
 
-- `@Nullable` and `@NotNull` annotations to handle null values
+- Annotation syntax that allows for `@Nullable` and `@NotNull` (There are many implementations).
 - `throws` keyword to make error handling explicit
-- _Mockito_ and similar libraries to mock dependencies during runtime.
+- _Mockito_ and similar libraries to mock injected dependencies during runtime.
 
-### Typescript
+```java
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-Typescript supports union types, so a variable can be, for instance
-`string | number | null | undefined`. This makes empty values explicit.
+public DBUser createUser(
+    @NotNull User user,
+    @Nullable UserRepository repository
+) throws RepositoryException, Exception {
+    if (repository == null) {
+        throw new Exception("repository is required!");
+    }
+    return repository.save(user);
+}
+```
 
 ### Rust
 
-Rust offers a simple and powerful type system:
-
+Rust has a unique type-system because it has:
 - No _null_ pointer
-- _Option_ data structure to handle absent values
-- _Result_ data structure to handle errors
+- _Option_ data structure to handle present or absent values
+- _Result_ data structure to handle success or error values
+
+The _Option_ and _Result_ work like enums, so you have to handle each case, like showed below:
+
+```rs
+pub fn create_user(
+    user: User,
+    repo: Option<UserRepo>,
+) -> Result<DBUser, RepoErr> {
+    match repository {
+        Some(r) => Ok(r.save(user)),
+        None => Err("Repository cannot be null"),
+    }
+}
+```
+
+## Conclusion
+
+Interfaces, like any form of **abstraction**, can _hide errors_. If null and errors are **explicit**, these errors can be avoided, at the cost of verbose code. Personally, I like the **Rust** solution.
