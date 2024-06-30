@@ -7,32 +7,33 @@ using them?
 
 Real software depends on technology: Database connection, **HTTP** requests, **FTP** servers,
 **TCP** messages, **encrypt** data, to name a few. On a _layered architecture_ perspective, all of
-that is detail, and your application is essentially the **entities** and the **operations**. This
+that is detail, and a application is essentially the **entities** and the **operations**. This
 approach, however, takes time to be implemented.
 
 ```bash
 .
-├── application
-│   └── controller
-│       ├── todo
-│       └── user
-├── domain
-│   ├── todo
-│   │   ├── create
-│   │   ├── delete
-│   │   ├── read
-│   │   └── update
-│   └── user
-│       ├── create
-│       ├── login
-│       └── update
-├── infra
-│   ├── database
-│   ├── http
-│   ├── id_generator
-│   ├── password_generator
-│   └── schema_validator
-└── main
+└── todo_app
+    ├── application
+    │   └── controller
+    │       ├── todo
+    │       └── user
+    ├── domain
+    │   ├── todo
+    │   │   ├── create
+    │   │   ├── delete
+    │   │   ├── read
+    │   │   └── update
+    │   └── user
+    │       ├── create
+    │       ├── login
+    │       └── update
+    ├── infra
+    │   ├── database
+    │   ├── http
+    │   ├── id_generator
+    │   ├── password_generator
+    │   └── schema_validator
+    └── main
 ```
 
 > Tree structure of a sample _todo list_ application applying _layered architecture_.
