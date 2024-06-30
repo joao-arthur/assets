@@ -68,8 +68,8 @@ const grid = new Map([
 
 > A _Set_ would also suffice **in this scenario**, since a living cell has only one state
 
-An important change is that, with a _Map_, we can no longer rely on array indices. Instead, we need to
-use a different method to identify cell positions, i.e., a **coordinate system**. I chose the
+An important change is that, with a _Map_, we can no longer rely on array indices. Instead, we need
+to use a different method to identify cell positions, i.e., a **coordinate system**. I chose the
 **cartesian plane**.
 
 #### The visual solution

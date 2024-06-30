@@ -1,12 +1,16 @@
 # Interfaces
 
+Is there a way to make a _big project_ easy to _implement_, easy to _test_ and _type-safe_?
+
 ## Data types
 
-In any programming language, data has types. Numbers, text, binaries, all of them have a specific
-type. The same way, an object can be defined by a type, referred to as an _interface_ in most
+In any programming language, data has types. Numbers, text, binaries, all of them have a _specific
+type_. The same way, an object can be defined by a type, referred to as an _interface_ in most
 languages.
 
-An interface is a set of operations with arguments and return types. This allows for:
+> An interface is a set of operations with arguments and return types.
+
+This allows for:
 
 - Multiple implementations
 - Hide dependency injection
@@ -45,6 +49,7 @@ export const createUserServiceErrorStub: CreateUserService = {
     },
 };
 ```
+
 > Sample service to create a user, that also exports its _stubs_
 
 Any functions that has a **CreateUserService** argument can be tested using
@@ -53,7 +58,10 @@ This abstracts implementation and let you think about **input** and **output**.
 
 ## Pitfalls
 
-- If you apply interfaces exhaustively, the code indirection makes it hard to follow the code. As a rule of thumb, use interfaces for: **external resources** (HTTP requests, database connections...) and **dependency injection** (When these resources are passed as arguments of functions, exactly as in the previous example).
+- If you apply interfaces exhaustively, the code indirection makes it hard to follow the code. As a
+  rule of thumb, use interfaces for: **external resources** (HTTP requests, database connections...)
+  and **dependency injection** (When these resources are passed as arguments of functions, exactly
+  as in the previous example).
 
 - There is two problems that a type-system may not cover:
 
@@ -85,7 +93,7 @@ In order to compare this code to another languages, suppose:
 
 ### Typescript
 
-Typescript supports union types, that allow typing required and null values. But there is no way to The same code could be rewritten as:
+Typescript supports union types, that allow typing required and null values:
 
 ```ts
 function createUser(
@@ -103,7 +111,8 @@ function createUser(
 
 Java provides:
 
-- Annotation syntax that allows for `@Nullable` and `@NotNull` (There are many implementations).
+- Annotation syntax that allows for `@Nullable` and `@NotNull` (There are many implementations from
+  different libs)
 - `throws` keyword to make error handling explicit
 - _Mockito_ and similar libraries to mock injected dependencies during runtime.
 
@@ -125,6 +134,7 @@ public DBUser createUser(
 ### Rust
 
 Rust has a unique type-system because it has:
+
 - No _null_ pointer
 - _Option_ data structure to handle present or absent values
 - _Result_ data structure to handle success or error values
@@ -145,4 +155,6 @@ pub fn create_user(
 
 ## Conclusion
 
-Interfaces, like any form of **abstraction**, can _hide errors_. If null and errors are **explicit**, these errors can be avoided, at the cost of verbose code. Personally, I like the **Rust** solution.
+Interfaces, like any form of **abstraction**, can _hide errors_. If null and errors are
+**explicit**, these errors can be avoided, at the cost of verbose code. Personally, I like the
+**Rust** solution.
