@@ -1,6 +1,6 @@
 [
     {
-        "id": "Interfaces",
+        "id": "interfaces",
         "name": {
             "en": "Interfaces",
             "pt": "Interfaces"
@@ -8,11 +8,19 @@
         "date": "2023-08-12"
     },
     {
-        "id": "Layered-architecture-and-market",
+        "id": "layered-architecture-and-market",
         "name": {
             "en": "Layered Architecture and Market",
-            "pt": "Layered Architecture and Market"
+            "pt": "Arquitetura em Camadas e Mercado"
         },
         "date": "2023-08-11"
+    },
+    {
+        "id": "unix-like-and-packages",
+        "name": {
+            "en": "UNIX-Like and Packages",
+            "pt": "Tipo-UNIX e pacotes"
+        },
+        "date": "2024-06-30"
     }
 ]
