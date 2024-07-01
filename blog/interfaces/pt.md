@@ -60,7 +60,7 @@ dependências. Isso abstrai a implementação e permite você pensa sobre **entr
 ## Armadilhas
 
 - Se você aplicar interfaces exaustivamente, a indireção do código torna difícil seguir o código.
-  Como uma boa prática, use interfaces para: **recursos externos** (requisições HTTP, conexão com
+  Como uma boa prática, use interfaces para: **Recursos externos** (requisições HTTP, conexão com
   bancos de dados...) e **injeção de dependência** (Quando os recursos são passados via argumentos
   da função, exatamente como no exemplo anterior).
 

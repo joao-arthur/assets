@@ -1,4 +1,4 @@
-# Tipo-UNIX e pacotes
+# UNIX-Like e pacotes
 
 Por que as vezes tudo parece bagunçado no Linux? Por que toda a comunidade de software livre ainda
 usa C?
@@ -6,8 +6,8 @@ usa C?
 ## Abram alas para o Linux
 
 Generalizando, quando alguém começa no **Linux** é com uma distribuição famosa. Após a instalação, é
-possível instalar os programas a partir de comandos. Normalmente, esses comandos são apenas **CLIs**
-que agem de **frontend** para os **gerenciadores de pacote**.
+possível instalar os programas a partir de comandos no terminal. Normalmente, esses comandos são
+apenas **CLIs** que agem de **frontend** para os **gerenciadores de pacote**.
 
 | distro | frontend | backend |
 | ------ | -------- | ------- |
@@ -17,18 +17,18 @@ que agem de **frontend** para os **gerenciadores de pacote**.
 | fedora | dnf      | rpm     |
 | gentoo | emerge   | portage |
 
-> Tabela dos **comandos de terminal** e **gerenciandores de pacotes** mais comuns no mundo linux
+> **Comandos de terminal** e **gerenciandores de pacotes** mais comuns no mundo linux
 
 Um dos princípios da comunidade de **software livre** é a _liberdade de escolha_. Quando se trata de
 _gerenciadores de pacote_, cada distro utiliza um específico.
 
 ## C, a lingua franca
 
-Os programas básicos de todo sistema operacional moderno são escritos em **C**. Isso não é apenas o
-reflexo de um legado de 50 anos, mas também algo intencial, devido a uma funcionalidade única dessa
-linguagem de programação: A **vinculação dinâmica**. Essa funcionalidade permite compilar um
-programa que depende de várias bibliotecas sem que elas estejam disponíveis em tempo de compilação,
-apenas com os arquivos de **cabeçalho**.
+Os programas básicos de todo sistema operacional moderno são todos escritos em **C**. Isso não é
+apenas o reflexo de um legado de 50 anos, mas também algo intencial, devido a uma funcionalidade
+única dessa linguagem de programação: A **vinculação dinâmica**. Essa funcionalidade permite
+compilar um programa que depende de várias bibliotecas sem que elas estejam disponíveis em tempo de
+compilação, apenas com os arquivos de **cabeçalho**.
 
 Imagine por exemplo que no seu Linux, 50 programas usam uma biblioteca de criptografia chamada
 **libre_crypto**. Ao rodar a atualização de sistema pelo gerenciador de pacotes, essa biblioteca é
@@ -48,7 +48,7 @@ aprofundamento, eu recomendo da leitura do excelente artigo
 import React from "react";
 ```
 
-Quando o programa for executado, o **NodeJS** vai procurar pela pasta `node_modules/react`.
+Quando o programa for executado, o **NodeJS** vai procurar pelo diretório `node_modules/react`.
 
 De forma similar, quando um programa em **C** faz o seguinte include:
 
@@ -65,7 +65,7 @@ Vamos voltar brevemente para o _começo da História, 1º de janeiro de 1970_. U
 Operacional estava sendo criado na Bell Labs, o **UNIX**. Em pouco tempo, esse sistema passou a ser
 usado em universidades por todos os Estados Unidos e logo várias pessoas passaram a criar o seu
 próprio **UNIX**, com diversas distribuições sendo criadas. Como resultado, atualmente os principais
-sistemas operacionais modernos do **tipo-UNIX** de código aberto são:
+Sistemas Operacionais modernos **UNIX-like** de código aberto são:
 
 - GNU/Linux
 - OpenBSD
@@ -76,12 +76,11 @@ Todos esses sistemas possuem **mais ou menos** as mesmas **APIs** disponíveis p
 programa. O que significa que, qualquer programa escrito pensando no **GNU/Linux** pode ser portado
 para o **OpenBSD** ou para o **FreeBSD**, ou vice-versa.
 
-Leia novamente a última frase. Ela implica que você pode rodar o **ZSH**, o **fastfetch**, e até
-mesmo o **gnome** tanto em um **GNU/Linux** quando no **OpenBSD**, e esses _são exemplos reais que
-eu encontrei na internet_.
+Isso implica que é possível rodar **ZSH**, **fastfetch**, e até mesmo **gnome** tanto em um
+**GNU/Linux** quando no **OpenBSD**, e esses são _exemplos reais que eu encontrei na Internet_.
 
 ## Conclusão
 
 A liberdade do software livre as vezes pode levar a problemas de compatibilidade e a bugs. Porém é
 importante entender os desafios e as vantagens de manter a portabilidade dos programas entre
-sistemas do tipo-UNIX.
+sistemas do UNIX-like.

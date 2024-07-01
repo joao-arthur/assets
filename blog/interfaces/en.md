@@ -59,7 +59,7 @@ This abstracts implementation and let you think about **input** and **output**.
 ## Pitfalls
 
 - If you apply interfaces exhaustively, the code indirection makes it hard to follow the code. As a
-  rule of thumb, use interfaces for: **external resources** (HTTP requests, database connections...)
+  rule of thumb, use interfaces for: **External resources** (HTTP requests, database connections...)
   and **dependency injection** (When these resources are passed as arguments of functions, exactly
   as in the previous example).
 
