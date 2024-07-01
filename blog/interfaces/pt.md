@@ -3,7 +3,7 @@
 Existe alguma forma de tornar um _projeto grande_ fácil de _implementar_, fácil de testar _testar_ e
 com _segurança de tipo_?
 
-## Tipos de dado
+## Tipos De Dado
 
 Em qualquer linguagem de programação, dados possuem tipo. Números, texto, binários, todos eles
 possuem um _tipo específico_. Da mesma forma, um objeto pode ser definido por um tipo, referido como
@@ -62,7 +62,7 @@ dependências. Isso abstrai a implementação e permite você pensa sobre **entr
 - Se você aplicar interfaces exaustivamente, a indireção do código torna difícil seguir o código.
   Como uma boa prática, use interfaces para: **Recursos externos** (requisições HTTP, conexão com
   bancos de dados...) e **injeção de dependência** (Quando os recursos são passados via argumentos
-  da função, exatamente como no exemplo anterior).
+  da função, exatamente como no exemplo anterior)
 
 - Existe depois problemas que um sistema de tipos pode não cobrir:
 

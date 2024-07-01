@@ -1,8 +1,8 @@
-# HTML and components
+# HTML And Components
 
 Why React became so popular? How was the way here?
 
-## From HTML to React
+## From HTML To React
 
 Web is much younger than the compuper and operational systems, because of that, its development is
 still happening.
@@ -55,7 +55,7 @@ export function RedSquare() {
 }
 ```
 
-## Impact of componentization
+## Impact Of Componentization
 
 Currently, even on **vanilla JavaScript**, it is possible to create custom HTML tags, by the
 **WebComponents API**.

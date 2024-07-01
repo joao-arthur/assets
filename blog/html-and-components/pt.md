@@ -1,8 +1,8 @@
-# HTML e componentes
+# HTML E Componentes
 
 Por que o React se tornou tão popular? Como foi o caminho até aqui?
 
-## Do HTML ao React
+## Do HTML Ao React
 
 A web é muito mais recente que o computador e os sistemas operacionais, por conta disso seu
 desenvolvimento ainda está ocorrendo.
@@ -57,7 +57,7 @@ export function QuadradroVermelho() {
 }
 ```
 
-## Os impactos da componentização
+## Os Impactos Da Componentização
 
 Atualmente, mesmo no **JavaScript vanilla** já é possível criar tags HTML customizadas, através da
 **API de WebComponents**.

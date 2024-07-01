@@ -1,9 +1,9 @@
-# UNIX-Like e pacotes
+# UNIX-Like E Pacotes
 
 Por que as vezes tudo parece bagunçado no Linux? Por que toda a comunidade de software livre ainda
 usa C?
 
-## Abram alas para o Linux
+## Abram Alas Para O Linux
 
 Generalizando, quando alguém começa no **Linux** é com uma distribuição famosa. Após a instalação, é
 possível instalar os programas a partir de comandos no terminal. Normalmente, esses comandos são
@@ -22,7 +22,7 @@ apenas **CLIs** que agem de **frontend** para os **gerenciadores de pacote**.
 Um dos princípios da comunidade de **software livre** é a _liberdade de escolha_. Quando se trata de
 _gerenciadores de pacote_, cada distro utiliza um específico.
 
-## C, a lingua franca
+## C, A Lingua Franca
 
 Os programas básicos de todo sistema operacional moderno são todos escritos em **C**. Isso não é
 apenas o reflexo de um legado de 50 anos, mas também algo intencial, devido a uma funcionalidade
@@ -59,7 +59,7 @@ De forma similar, quando um programa em **C** faz o seguinte include:
 Quando o programa for executado, o **Sistema Operacional** vai procurar pelo arquivo
 `/usr/lib/libSDL2.so`.
 
-## O pai de todos
+## O Pai De Todos
 
 Vamos voltar brevemente para o _começo da História, 1º de janeiro de 1970_. Um novo Sistema
 Operacional estava sendo criado na Bell Labs, o **UNIX**. Em pouco tempo, esse sistema passou a ser

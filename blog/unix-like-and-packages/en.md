@@ -1,8 +1,8 @@
-# UNIX-Like and packages
+# UNIX-Like And Packages
 
 Why sometimes everything seems messy on Linux? why the whole free software community still uses C?
 
-## Make way for Linux
+## Make Way For Linux
 
 Generalizing, when someone begins on Linux, it happens with a famous distribution. After install, it
 is possible to install the programs using terminal commands. Usually, these commands are just
@@ -21,7 +21,7 @@ is possible to install the programs using terminal commands. Usually, these comm
 One of the **free software** principles is the _freedom of choise_. When it comes to package
 managers, each distro uses a specific one.
 
-## C, the lingua franca
+## C, The Lingua Franca
 
 The basic programs of every operational system are all written in **C**. This is not just the reflex
 of a 50 years legaly, but also something intentional, because a unique feature of this programming
@@ -57,7 +57,7 @@ Similar way, when a **C** program makes the following include:
 When the program gets executed, the **Operational System** will lookup for the file
 `/usr/lib/libSDL2.so`.
 
-## The father of all
+## The Father Of All
 
 Let's briefly return to the _beginning of History, january 1st 1970_. A new Operational System was
 being created at Bell Labs, the **UNIX**. In short period of time, this system becamed used in

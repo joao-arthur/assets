@@ -1,4 +1,4 @@
-# Clean Architecture, DDD and Market
+# Clean Architecture, DDD And Market
 
 Everybody knows that **Clean Architecture** and **DDD** provide many advatanges. Why isn't everyone
 using them?

@@ -2,7 +2,7 @@
 
 Is there a way to make a _big project_ easy to _implement_, easy to _test_ and _type-safe_?
 
-## Data types
+## Data Types
 
 In any programming language, data has types. Numbers, text, binaries, all of them have a _specific
 type_. The same way, an object can be defined by a type, referred to as an _interface_ in most
@@ -61,14 +61,14 @@ This abstracts implementation and let you think about **input** and **output**.
 - If you apply interfaces exhaustively, the code indirection makes it hard to follow the code. As a
   rule of thumb, use interfaces for: **External resources** (HTTP requests, database connections...)
   and **dependency injection** (When these resources are passed as arguments of functions, exactly
-  as in the previous example).
+  as in the previous example)
 
 - There is two problems that a type-system may not cover:
 
   - **Null values**
   - **Error handling**
 
-## Language by language
+## Language By Language
 
 Take the following example in _JavaScript_:
 
