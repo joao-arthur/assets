@@ -1,5 +1,21 @@
 [
     {
+        "id": "html-and-components",
+        "name": {
+            "en": "HTML And Components",
+            "pt": "HTML E Componentes"
+        },
+        "date": "2024-06-31"
+    },
+    {
+        "id": "unix-like-and-packages",
+        "name": {
+            "en": "UNIX-Like And Packages",
+            "pt": "Tipo-UNIX E Pacotes"
+        },
+        "date": "2024-06-30"
+    },
+    {
         "id": "interfaces",
         "name": {
             "en": "Interfaces",
@@ -8,19 +24,11 @@
         "date": "2023-08-12"
     },
     {
-        "id": "layered-architecture-and-market",
+        "id": "layered-architecture-ddd-and-market",
         "name": {
-            "en": "Layered Architecture and Market",
-            "pt": "Arquitetura em Camadas e Mercado"
+            "en": "Clean Architecture, DDD And Market",
+            "pt": "Arquitetura Limpa, DDD E Mercado"
         },
         "date": "2023-08-11"
-    },
-    {
-        "id": "unix-like-and-packages",
-        "name": {
-            "en": "UNIX-Like and Packages",
-            "pt": "Tipo-UNIX e pacotes"
-        },
-        "date": "2024-06-30"
     }
 ]

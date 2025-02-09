@@ -1,8 +1,6 @@
-# Conway's Game Of Life
+# Libre Game Of Life
 
-## Definição
-
-> O Jogo Da Vidfa é um autômato celular criado pelo matemático britânico John Horton Conway em 1970
+> O Jogo Da Vida é um autômato celular criado pelo matemático britânico John Horton Conway em 1970
 
 Esse autômato acontece em uma grade onde cada celula pode estar ou viva ou morta. A cada passo de
 tempo, o grupo de células vivas é determinada pelas seguintes regras:
