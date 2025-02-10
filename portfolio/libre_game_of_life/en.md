@@ -85,4 +85,4 @@ neighborhoods. This operation is independent of the UI size and therefore, **muc
 
 ## Final Application
 
-[Click here to see!](/game-of-life/index.html)
+[Click here to see!](/libre_game_of_life/index.html)

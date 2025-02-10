@@ -33,4 +33,4 @@ Through the process, I learned:
 
 ## Final Application
 
-[Click here to see!](/precise-schedule/index.html)
+[Click here to see!](/precise_schedule/index.html)

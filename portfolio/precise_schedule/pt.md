@@ -34,4 +34,4 @@ Através do processo eu aprendi:
 
 ## Aplicação Final
 
-[Clique aqui para ver!](/precise-schedule/index.html)
+[Clique aqui para ver!](/precise_schedule/index.html)

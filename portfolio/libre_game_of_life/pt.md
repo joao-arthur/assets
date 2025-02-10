@@ -84,4 +84,4 @@ vizinhos. Essa operação é independente do tamanho da UI e portanto, **muito m
 
 ## Aplicação Final
 
-[Click aqui para ver!](/game-of-life/index.html)
+[Click aqui para ver!](/libre_game_of_life/index.html)
