@@ -48,7 +48,7 @@ aprofundamento, eu recomendo da leitura do excelente artigo
 import React from "react";
 ```
 
-Quando o programa for executado, o **NodeJS** vai procurar pelo diretório `node_modules/react`.
+Quando o programa for executado, o **NodeJS** vai procurar pelo diretório **node_modules/react**.
 
 De forma similar, quando um programa em **C** faz o seguinte include:
 

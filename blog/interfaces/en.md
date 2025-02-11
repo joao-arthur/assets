@@ -86,10 +86,10 @@ async function createUser(
 
 In order to compare this code to another languages, suppose:
 
-- `repository` can be null
-- `repository` can throw an error
-- `user` is an required argument
-- If `user` is correctly saved, the saved user is returned
+- **repository** can be null
+- **repository** can throw an error
+- **user** is an required argument
+- If **user** is correctly saved, the saved user is returned
 
 ### Typescript
 
@@ -111,9 +111,9 @@ function createUser(
 
 Java provides:
 
-- Annotation syntax that allows for `@Nullable` and `@NotNull` (There are many implementations from
+- Annotation syntax that allows for **@Nullable** and **@NotNull** (There are many implementations from
   different libs)
-- `throws` keyword to make error handling explicit
+- **throws** keyword to make error handling explicit
 - _Mockito_ and similar libraries to mock injected dependencies during runtime
 
 ```java

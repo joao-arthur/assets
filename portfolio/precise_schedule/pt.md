@@ -21,7 +21,7 @@ conhecimento que eu ganhei.
 
 ### 2024
 
-- Reescrevi o backend **Deno** aplicando o paradigma estruturado e a estrutura de dados Result
+- Reescrevi o backend **Deno** aplicando o paradigma estruturado e a estrutura de dados **Result**
   inspirada no **Rust**
 
 ## As Lições

@@ -46,7 +46,7 @@ It is possible to compare this behavior with **NodeJS**. Imagine the following i
 import React from "react";
 ```
 
-When the program gets executed, **NodeJS** will lookup for the directory `node_modules/react`.
+When the program gets executed, **NodeJS** will lookup for the directory ***node_modules/react***.
 
 Similar way, when a **C** program makes the following include:
 

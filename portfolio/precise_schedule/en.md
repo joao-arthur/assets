@@ -20,7 +20,7 @@ completing the application, I had the urge to rewrite it, applying the knowledge
 
 ### 2024
 
-- I rewrote the **Deno** backend using the structured paradigm and the `Result` data structure
+- I rewrote the **Deno** backend using the structured paradigm and the **Result** data structure
   inspired on **Rust**
 
 ## The Lessons

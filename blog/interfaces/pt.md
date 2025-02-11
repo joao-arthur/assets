@@ -87,10 +87,10 @@ async function criarUsuario(
 
 Para poder comparar esse código com outras linguagens, suponha:
 
-- `repository` pode ser null
-- `repository` pode lançar um erro
-- `user` é um argumento obrigatório
-- Se `user` for corretamente salvo, o usuário salvo é retornado
+- **repository** pode ser null
+- **repository** pode lançar um erro
+- **user** é um argumento obrigatório
+- Se **user** for corretamente salvo, o usuário salvo é retornado
 
 ### Typescript
 
@@ -112,9 +112,9 @@ function criarUsuario(
 
 Java provê:
 
-- Sintaxe de anotação que permite `@Nullable` e `@NotNull` (Existem muitas implementações de
+- Sintaxe de anotação que permite **@Nullable** e **@NotNull** (Existem muitas implementações de
   diversas bibliotecas)
-- Palavra reservada `throws` para tornar o gerenciamento de error explícito
+- Palavra reservada **throws** para tornar o gerenciamento de error explícito
 - _Mockito_ e bibliotecas similares para mockar injeção de dependências em tempo de execução
 
 ```java
