@@ -16,7 +16,8 @@ conhecimento que eu ganhei.
 
 ### 2023
 
-- Terminei o frontend usando **NextJS** e fiz ele funcionar por conta própria do backend
+- Portei o frontend para **NextJS** e finalizei ele, fazendo funcionar de forma independente do
+  backend
 - Apliquei **DDD** para criar um novo backend em **Deno** do zero
 
 ### 2024
@@ -29,7 +30,7 @@ conhecimento que eu ganhei.
 Através do processo eu aprendi:
 
 - A limitar as funcionalidades ao essencial
-- Começar o desenvolvimento por funcionalidades chave
+- Começar o desenvolvimento por funcionalidades-chave
 - Que arquitetura é mais importante que o código
 
 ## Aplicação Final

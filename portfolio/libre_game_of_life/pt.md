@@ -2,8 +2,8 @@
 
 > O Jogo Da Vida é um autômato celular criado pelo matemático britânico John Horton Conway em 1970
 
-Esse autômato acontece em uma grade onde cada celula pode estar ou viva ou morta. A cada passo de
-tempo, o grupo de células vivas é determinada pelas seguintes regras:
+Esse autômato acontece em uma grade onde cada celula pode estar viva ou morta. A cada passo de
+tempo, o grupo das células vivas é determinada pelas seguintes regras:
 
 - Celulas vivas sobrevivem com 2 ou 3 vizinhos vivos
 - Celulas mortas se tornam vivas com 3 vizinhos vivos
@@ -38,7 +38,7 @@ Se todas as células estão confinadas **apenas dentro** das fronteiras da grade
 
 ![glider se transforma em um block](/images/glider_to_block.gif)
 
-#### O Problema de performance
+#### O Problema De Performance
 
 Criar uma nova geração obriga criar um novo array de mesmo tamanho do atual.
 
@@ -51,7 +51,7 @@ Você pode escolher entre:
   - **Vantagem**: Performance melhorada com menos células vivas
   - **Desvantagem**: Mais complexo de implementar
 
-### A abordagem do Map
+### A Abordagem Por Map
 
 A ideia dessa abordagem é guardas apenas o estado das células **vivas**.
 
@@ -63,11 +63,11 @@ const grade = new Map([
 ]);
 ```
 
-> Um _Set_ iria ser suficiente **nesse cenário**, já que uma célula possui apenas um estado
+> Um _Set_ seria suficiente **nesse cenário**, já que uma célula possui apenas um estado
 
-Uma mudança notória é que, com um _Map_, nós não podemos mais contar os índices do array. Ao invés
-disso, precisamos usar um método diferente para identificar as posições das células, i.e., um
-**sistema de coordenadas**. Eu escolhi o **plano cartesiano**.
+Uma mudança notória é que, com um _Map_, nós não podemos mais contar com os índices do array. Ao
+invés disso, precisamos usar um **sistema de coordenadas** para identificar as posições das células.
+O mais simples é o **plano cartesiano**.
 
 #### A Solução Visual
 
@@ -77,7 +77,7 @@ A limitação nas bordas não existe mais:
 
 ![glider indo embora](/images/glider_away.gif)
 
-#### A solução de performance
+#### A Solução De Performance
 
 Para criar uma nova geração, um novo _Map_ deve ser criado, iterando sobre as células vivas e seus
 vizinhos. Essa operação é independente do tamanho da UI e portanto, **muito mais rápida**.

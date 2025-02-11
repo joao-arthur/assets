@@ -46,11 +46,11 @@ Creating a new generation requires creating a new array of the same size as the 
 You can choose between:
 
 - Iterating over all items in the current array
-  - **Advantage**: Simplicity
-  - **Disadvantage**: Slower performance with larger grids
+  - **Advantage:** Simplicity
+  - **Disadvantage:** Slower performance with larger grids
 - Mapping the positions of alive cells and iterating over their neighbors
-  - **Advantage**: Improved performance with fewer alive cells
-  - **Disadvantage**: More complex to implement
+  - **Advantage:** Improved performance with fewer alive cells
+  - **Disadvantage:** More complex to implement
 
 ### The Map Approach
 
@@ -67,8 +67,7 @@ const grid = new Map([
 > A _Set_ would also suffice **in this scenario**, since a living cell has only one state
 
 An important change is that, with a _Map_, we can no longer rely on array indices. Instead, we need
-to use a different method to identify cell positions, i.e., a **coordinate system**. I chose the
-**cartesian plane**.
+to use a **coordinate system** identify cell positions. The most simple is the **cartesian plane**.
 
 #### The Visual Solution
 

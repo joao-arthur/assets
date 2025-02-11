@@ -111,8 +111,8 @@ function createUser(
 
 Java provides:
 
-- Annotation syntax that allows for **@Nullable** and **@NotNull** (There are many implementations from
-  different libs)
+- Annotation syntax that allows for **@Nullable** and **@NotNull** (There are many implementations
+  from different libs)
 - **throws** keyword to make error handling explicit
 - _Mockito_ and similar libraries to mock injected dependencies during runtime
 
