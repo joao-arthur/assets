@@ -55,7 +55,7 @@ Similar way, when a **C** program makes the following include:
 ```
 
 When the program gets executed, the **Operational System** will lookup for the file
-`/usr/lib/libSDL2.so`.
+**/usr/lib/libSDL2.so**.
 
 ## The Father Of All
 

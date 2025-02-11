@@ -57,7 +57,7 @@ De forma similar, quando um programa em **C** faz o seguinte include:
 ```
 
 Quando o programa for executado, o **Sistema Operacional** vai procurar pelo arquivo
-`/usr/lib/libSDL2.so`.
+**/usr/lib/libSDL2.so**.
 
 ## O Pai De Todos
 
