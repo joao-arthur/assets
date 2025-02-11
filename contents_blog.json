@@ -1,0 +1,7 @@
+[
+    { "name": "foss_and_unix_and_community.md", "path": "blog/foss_and_unix_and_community.md", "sha": "27a47661d5f2f45a596da4a7eea253a33baa71fe" },
+    { "name": "html-and-components", "path": "blog/html-and-components", "sha": "7559748c957c98e6f95cfa3a33a15557b9b7a0ff" },
+    { "name": "interfaces", "path": "blog/interfaces", "sha": "f2cda99497e88262a45e898cb87cebc264d4867c" },
+    { "name": "layered-architecture-ddd-and-market", "path": "blog/layered-architecture-ddd-and-market", "sha": "9d6316ef1621fb05c9ae8152e13c40bc37792670" },
+    { "name": "unix-like-and-packages", "path": "blog/unix-like-and-packages", "sha": "d9e363c86415a847504369156741900d241d6071" }
+]
