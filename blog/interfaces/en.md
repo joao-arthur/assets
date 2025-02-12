@@ -141,7 +141,7 @@ Rust has a unique type-system because it has:
 
 The _Option_ and _Result_ work like enums, so it is necessary to handle each case:
 
-```rs
+```rust
 pub fn create_user(
     user: User,
     repo: Option<UserRepo>,

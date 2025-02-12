@@ -142,7 +142,7 @@ Rust possui um sistema de tipos único, porque possui:
 
 _Option_ e _Result_ funcionam como enums, então é necessário lidar com cada caso:
 
-```rs
+```rust
 pub fn criar_usuario(
     usuario: Usuario,
     repo: Option<UsuarioRepo>,
