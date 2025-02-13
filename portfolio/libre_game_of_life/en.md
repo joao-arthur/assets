@@ -1,87 +1,60 @@
 # libre_game_of_life
 
-> The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway
+> The _Game of Life_ is a cellular automaton devised by the british mathematician John Horton Conway
 > in 1970
 
-This automaton occurs on a grid where each cell can be either dead or alive. At each time step, the
-group of living cells is determined by the following rules:
+## Rules
 
-- Living cells survive with 2 or 3 living neighbors
-- Dead cells become alive with 3 living neighbors
+_Game of Life_ automaton occurs on a grid where each cell can be either **dead** or **alive**. At each time step, what determines the state of each cell are the following rules:
 
-## Implementation
+- **Alive cells** survive with 2 or 3 alive neighbors
+- **Dead cells** become alive with 3 alive neighbors
 
-### The Array Approach
+## My implementation
 
-The idea of this approach is to store the state of **every** cell.
+I implemented a version of _Game of Life_ in _Rust_, called **libre_game_of_life**. It is an _Free Software (GNU AGPL v3.0)_, and you can [download it here!](https://github.com/joao-arthur/libre_game_of_life) 
 
-```ts
-const grid = [
-    [0, 1, 0],
-    [1, 1, 1],
-    [0, 1, 0],
-];
-```
-
-In the case of a square grid, the **number** of items in the array will be equal to the **square**
-of the grid's **length**:
-
-- 10x10 grid = 100 items
-- 100x100 grid = 10.000 items
-- 300x300 grid = 90.000 items
-
-> This implies that memory usage grows faster than the grid width.
-
-#### The Visual Problem
-
-If all cells are confined **only within** the grid boundaries, they become **stuck** at the edges.
-For instance, a glider on the edge **becomes a block**.
-
-![glider transforms into block](/images/glider_to_block.gif)
-
-#### The Performance Problem
-
-Creating a new generation requires creating a new array of the same size as the current one.
-
-You can choose between:
-
-- Iterating over all items in the current array
-  - **Advantage:** Simplicity
-  - **Disadvantage:** Slower performance with larger grids
-- Mapping the positions of alive cells and iterating over their neighbors
-  - **Advantage:** Improved performance with fewer alive cells
-  - **Disadvantage:** More complex to implement
-
-### The Map Approach
-
-The idea of this approach is to store only the state of the **living** cells.
-
-```ts
-const grid = new Map([
-    ["(0, 1)", 1],
-    ["(-4, 2)", 1],
-    ["(7, -3)", 1],
+```rust
+let grid = HashMap::from([
+    (Coordinate::from(0, 1), State::Alive),
+    (Coordinate::from(-4, 2), State::Alive),
+    (Coordinate::from(7, 3), State::Alive),
 ]);
 ```
 
-> A _Set_ would also suffice **in this scenario**, since a living cell has only one state
+> In the code above, the implementation of the automaton grid. A _HashSet_ would also work **in this scenario**, because only alive cells are considered. However, some variations of _Game of Life_ have more states
 
-An important change is that, with a _Map_, we can no longer rely on array indices. Instead, we need
-to use a **coordinate system** identify cell positions. The most simple is the **cartesian plane**.
+When using a _HashMap_, we decouple the **grid** and the **render**, allowing us to render any part of the grid, zooming in and out, without affecting the current state.
 
-#### The Visual Solution
+Another aspect is that, we need some **coordinate system** to identify a specific position. The most simple is the **cartesian plane**, which is the one used.
 
-Given that the coordinate system is **infinite**, the UI works like a **magnifying glass**:
-Revealing only a small part of the landscape, with the ability to move around and zoom in and out.
-The limitation at the edges no longer exists:
+### Iterating
 
-![glider slipping away](/images/glider_away.gif)
+To create the next generation, the current _HashMap_ is traversed, and for each alive cell and its neighbors, the rules are applied. The resulting alive cells are saved in a new _HashMap_.
 
-#### The Performance Solution
+### The application
 
-To create a new generation, a new _Map_ must be created by iterating over the living cells and their
-neighborhoods. This operation is independent of the UI size and therefore, **much faster**.
+I implemented _Game of Life_ on the web, rendered on a _canvas_. The project has three layers:
 
-## Final Application
+### lib
 
-[Click here to see!](/libre_game_of_life/index.html)
+A reusable, generic implementation of _Game of Life_ in _Rust_.
+
+### web_backend
+
+A _Web Assembly_ application that works as a bridge between _lib_ and _web_frontend_.
+
+### web_frontend
+
+The user application, responsible for render the canvas, the settings, and init the _Web Assembly_. Currently, the settings are the following:
+
+- **Preset:** Allows the user to choose from many popular shapes (Glider, Blinker, etc.) 
+- **Gap:** A visual option, for aesthetics
+- **Size:** The amount of zoom in the screen
+- **FPS:** The desired FPS for render
+
+[Click here to try it!](/libre_game_of_life/index.html)
+
+## Reference
+
+https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

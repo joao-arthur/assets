@@ -1,87 +1,59 @@
-# Libre Game Of Life
+# libre_game_of_life
 
-> O Jogo Da Vida é um autômato celular criado pelo matemático britânico John Horton Conway em 1970
+> O Jogo da Vida é um autômato celular criado pelo matemático britânico John Horton Conway em 1970
 
-Esse autômato acontece em uma grade onde cada celula pode estar viva ou morta. A cada passo de
-tempo, o grupo das células vivas é determinada pelas seguintes regras:
+## Regras
 
-- Celulas vivas sobrevivem com 2 ou 3 vizinhos vivos
-- Celulas mortas se tornam vivas com 3 vizinhos vivos
+O autômato _Jogo da Vida_ ocorre em um grid onde cada célula pode estar ou **viva** ou **morta**. A cada etapa de tempo, o que determina o estado de cada célula são as seguintes regras:
 
-## Implementação
+- **Células vivas** sobrevivem com 2 ou 3 vizinhos vivos
+- **Células mortas** se tornam vivas com 3 vizinhos vivos
 
-### A Abordagem Por Array
+## Minha implementação
 
-A ideia dessa abordagem é guardar o estado de **todas** as células.
+Eu implementei uma versão do _Jogo da Vida_ em _Rust_, chamado **libre_game_of_life**. É um _Software Livre (GNU AGPL v3.0)_, e você pode [baixar ele aqui!](https://github.com/joao-arthur/libre_game_of_life)
 
-```ts
-const grade = [
-    [0, 1, 0],
-    [1, 1, 1],
-    [0, 1, 0],
-];
-```
-
-No caso de uma grade quadrada, o **número** de itens do array vai ser igual ao **quadrado** do
-**tamanho** da grade:
-
-- Grade 10x10 = 100 itens
-- Grade 100x100 = 10.000 itens
-- Grade 300x300 = 90.000 itens
-
-> Isso implica que o uso da memória cresce mais rápido que o tamanho da grade
-
-#### O Problema Visual
-
-Se todas as células estão confinadas **apenas dentro** das fronteiras da grade, elas ficam
-**presas** nas bordas. Por exemplo, um glider em uma borda se **torna um block**.
-
-![glider se transforma em um block](/images/glider_to_block.gif)
-
-#### O Problema De Performance
-
-Criar uma nova geração obriga criar um novo array de mesmo tamanho do atual.
-
-Você pode escolher entre:
-
-- Iterar sobre todos os itens do array atual
-  - **Vantagem**: Simplicidade
-  - **Desvantagem**: Performance mais lenta com grades maiores
-- Mapear as posições das células vivas e iterar sobre seus vizinhos
-  - **Vantagem**: Performance melhorada com menos células vivas
-  - **Desvantagem**: Mais complexo de implementar
-
-### A Abordagem Por Map
-
-A ideia dessa abordagem é guardas apenas o estado das células **vivas**.
-
-```ts
-const grade = new Map([
-    ["(0, 1)", 1],
-    ["(-4, 2)", 1],
-    ["(7, -3)", 1],
+```rust
+let grid = HashMap::from([
+    (Coordinate::from(0, 1), State::Alive),
+    (Coordinate::from(-4, 2), State::Alive),
+    (Coordinate::from(7, 3), State::Alive),
 ]);
 ```
 
-> Um _Set_ seria suficiente **nesse cenário**, já que uma célula possui apenas um estado
+> No código acima, a implementação da grid do autômato. Um _HashSet_ também iria funcionar **nesse cenário**, porque apenas células vivas são consideradas. Porém, algumas variações do Jogo da Vida possuem mais estados 
 
-Uma mudança notória é que, com um _Map_, nós não podemos mais contar com os índices do array. Ao
-invés disso, precisamos usar um **sistema de coordenadas** para identificar as posições das células.
-O mais simples é o **plano cartesiano**.
+Usando um _HashMap_, nós desacoplamos a **grid** e a **renderização**, permetindo a nós renderizar qualquer parde do grid, aproximar e afastar o zoom, sem afetar o estado atual.
 
-#### A Solução Visual
+Outro aspecto é que, precisamos de algum **sistema de coordenadas** para identificar uma posição específica. A mais simples é o **plano cartesiano**, que é o que foi usado.
 
-Dado que um sistema de coordenadas é **infinito**, a UI funciona como uma **lupa**: Revelando apenas
-uma pequena porção da paisagem, com a habilidade de se mover ao redor e aumentar ou diminuir o zoom.
-A limitação nas bordas não existe mais:
+### Iterando
 
-![glider indo embora](/images/glider_away.gif)
+Para criar a próxima geração, o _HashMap_ atual é percorrido, e para célula viva e seus vizinhos, as regras são aplicadas. As células vivas resultantes são então salvas em um novo _HashMap_.
 
-#### A Solução De Performance
+### A aplicação
 
-Para criar uma nova geração, um novo _Map_ deve ser criado, iterando sobre as células vivas e seus
-vizinhos. Essa operação é independente do tamanho da UI e portanto, **muito mais rápida**.
+Eu implementei o _Jogo da Vida_ na web, renderizado em um _canvas_. O projeto possui três camadas:
 
-## Aplicação Final
+### lib
 
-[Click aqui para ver!](/libre_game_of_life/index.html)
+Uma implementação genérica e reutilizável do _Jogo da Vida_ em _Rust_.
+
+### web_backend
+
+Uma aplicação _Web Assembly_ que funciona como uma ponte entre a _lib_ e o _web_frontend_
+
+### web_frontend
+
+A aplicação do usuário, responsável por renderizar o canvas, as configurações, e inicializar o _Web Assembly_. Atualmente, as configurações são as seguintes:
+
+- **Preset:** Permite ao usuário escolher entre muitas formas populares (Glider, Blinkder, etc.)
+- **Gap:** Uma opção visual, por estética
+- **Size:** A quantidade de zoom na tela
+- **FPS:** O FPS desejado para a renderização
+
+[Clique aqui para experimentar!](/libre_game_of_life/index.html)
+
+## Referência
+
+https://pt.wikipedia.org/wiki/Jogo_da_vida
